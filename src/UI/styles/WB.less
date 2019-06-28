@@ -1,0 +1,531 @@
+﻿@task-height: 110px;
+@task-width: @task-height * 1.618 + 20;
+@story-height: @task-height * 1.1;
+@story-width: @task-width * 1.1;
+@padding: 9px;
+@margin: 3px;
+@radius: 25px;
+@blue: #31C1DB;
+@pink: #F889C4;
+@orange: #F9AD5A;
+@purple: #BC97B8; 
+@green: #D0E296;
+@yellow: #FDF392;
+//@yellow: #999;
+@blue: #31C1DB;
+@pink: #F889C4;
+@orange: #F9AD5A;
+@purple: #BC97B8;
+//@green:#D0E296;
+@green: #9FD4A7;
+@gray: #f0f0f0;
+@basefont: 'Patrick Hand SC', cursive;
+@basefont: 'Segoe UI',Tahoma,Helvetica,Sans-Serif;
+@basefontsize: 1.0em;
+@borderbottom: lightgray;
+@borderright: lighten(@borderbottom, 10%);
+
+.yellow
+{
+    background-color: @yellow;
+}
+
+.green
+{
+    background-color: @green;
+}
+
+.purple
+{
+    background-color: @purple;
+}
+
+.orange
+{
+    background-color: @orange;
+}
+
+.pink
+{
+    background-color: @pink;
+}
+
+.blue
+{
+    background-color: @blue;
+}
+
+/*body, textarea {
+    background-color: white;
+    font-size: 1em;
+    letter-spacing: -0.00em;
+    color: #352A14;
+    padding-left: @padding;
+    padding-right: @padding;
+}*/
+
+body
+{
+    margin-top: 10px;
+}
+
+form
+{
+   // background-color: white;
+   //  padding: 9px;
+   // margin: 9px;
+}
+
+.hovershadow
+{
+    //opacity: 0.8;
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+
+td
+{
+    width: @task-width * 1.2;
+    //text-align:left;
+    padding: @padding;
+    margin: @margin;
+    position: relative;
+    //border-bottom:1px solid  #E3E3E3;
+}
+
+th
+{
+    font-weight: normal;
+    //text-transform: uppercase;
+    text-align: center;
+    padding: @padding;
+    margin: @margin;
+    background-color: #E3E3E3;
+}
+
+.tasks
+{
+    min-height: @task-width /2 - @padding;
+    margin: @margin;
+}
+
+.task
+{
+    background-color: @yellow;
+    width: @task-width;
+    min-height: @task-height / 2;
+    margin: @margin;
+    margin-bottom: @margin * 2;
+    cursor: move;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    font-size: 1.1em;
+    text-align: left;
+
+    &:hover
+    {
+        .hovershadow
+    }
+
+    a
+    {
+        color: darkblue;
+    }
+
+    .more(@yellow);
+    //position:absolute;
+    .bordered
+}
+
+.more(@backcolor)
+{
+    .more
+    {
+        float: right;
+        color: darken(@backcolor, 35%);
+        width: 70px;
+        height: 25px;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        padding-top: 3px;
+        font-size: 0.7em;
+    }
+
+    .task-foot
+    {
+        color: darken(@backcolor, 40%);
+        background-color: darken(@backcolor, 10%);
+        margin: 3px;
+        padding: 3px;
+    }
+
+    .lognoterow
+    {
+        background-color: lighten(@backcolor, 10%);
+        margin: 3px;
+        padding: 3px;
+    }
+}
+
+.taskyellow
+{
+    .task;
+
+    .ttext
+    {
+        color: darkblue;
+    }
+}
+
+.taskgreen
+{
+    .task;
+    background-color: @green;
+    .more(@green);
+}
+
+.taskpurple
+{
+    .task;
+    background-color: @purple;
+    .more(@purple);
+}
+
+.taskorange
+{
+    .task;
+    background-color: @orange;
+    .more(@orange);
+}
+
+.taskblue
+{
+    .task;
+    background-color: @blue;
+    .more(@blue);
+}
+
+.taskpink
+{
+    .task;
+    background-color: @pink;
+    .more(@pink);
+}
+
+.taskbar
+{
+    background-color: white;
+}
+
+.taskmoreviewbar
+{
+    z-index: 100;
+    background-color: white;
+    display: none;
+    border: 3px solid darkgray;
+    padding: @padding;
+}
+
+.ttext
+{
+    padding: @padding /2;
+    padding-bottom: @margin* 2;
+    margin-top: 1px;
+    //color: white;
+    // overflow-y: auto;
+    //max-height: @task-height * 1.618;
+    .break-word
+}
+
+.storybar
+{
+  //  display: none;
+}
+
+.bordered
+{
+    border-bottom: 1px solid @borderbottom;
+    border-right: 1px solid @borderright;
+}
+
+.story
+{
+    margin: 3px;
+    background-color: #fff;
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    width: @story-width;
+    //min-height: @story-height;
+    font-weight: bolder;
+    font-size: 1.1em;
+    text-align: left;
+
+    &:hover
+    {
+        .hovershadow
+    }
+
+    .bordered
+}
+
+.task-foot
+{
+    font-weight: normal;
+    font-size: 0.7em;
+    display: none;
+    background-color: @gray;
+    z-index: 100;
+}
+
+.story:hover
+{
+}
+
+.storybar
+{
+    //position: absolute;
+    //bottom: 14px;
+    text-align: right;
+    font-size: 0.7em;
+    margin-top: 18px;
+}
+
+.alert-info
+{
+    width: @task-width;
+    height: inherit;
+}
+
+.listplaceholder
+{
+    background-color: blue;
+    float: left;
+    height: @task-width / 3;
+    width: @task-width + 50;
+}
+
+.alert
+{
+}
+
+.hover
+{
+    width: @task-width;
+    height: 100%;
+    width: 100%;
+    min-height: 23px;
+    cursor: move;
+    z-index: 1;
+    //border-left: 2px solid #dc2121;
+    //border: 2px solid #dc2121;
+    clear: both;
+    background-color: lighten(@gray, 10%);
+    background-color: lighten(@blue, 40%);
+}
+/*.board-logo
+{
+    background-image: url(data:image/png;base64,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 pX ///jJw4EDzN/uEHy3p4JMEMqJ8+fKRgKgL4pKIM7FttNPrZQGEePPmTSGuHD161KTr1LrUgGvW
+    rDFN/507d5rfiQ/MJ0EASAblBtqntxTwHhyYk7Lr4AoMNLSrxfdoMdZpx1rqSb5XbwQtSgT7YBz3 peeuzEV4tBg1U9ZYyqd9bIe7W7hwoQGShz04+7hYY7Fixcx6uHQ9PWJv7J31/PWm4RnQeBfLpUuG DDWeY5TkCeEEXmcXhheDHcQOakbaUSQlCI9rnEuWLDE+nsU5R0WDAZt12TQdDsDBlSBIACfokyky 6NXa/GmSo/xRRuzYscNnmbabs/dAFo+C2T1haGldx1wUTTtkfE981fYigrStDgFCjwFwXP4CECwG wVJW6XwtS1CMzp07mz64WhfvAywyR0Y0D1Ce6AbKQ4lp08eDEFrCIiMjfzu7MPjrrl27Go3XoU1g BM8FZ/qUuC9AoD6DKb0IpZqn2uMvgfDHNMJEYMOHDzeBntaYHtupoLEOim4UScsS+7xUr6ZUqlTJ uDNKMqxVmwTwxL9RKGo5Okhk+iSHCBtrwr1pvUsmSblBQqIlUJYsWUzCxAGGWj6/4RoBmPJJSww+ BwwY4GvRoYTETujZ5Y3ew2I+HgaL5kYjcoAeLUJkrneckSFJIIrXoUMHCfv7tvpv56UrwMMy1DrQ BBjGHbNRLEw1S/8rQ7CgBfIArFWqVCnDJOm5AsF7gIpVaMEPvwiXRoATVOaqMjCPWpAkUDtPenqk 12kAhL1SD9pZPuuhYHgVrQb07pRaPcqOi+aQn4Y5gkY+vMsFAGp6e9CQx2tp3Nff4AEZt27d2sRX QpaWT2o0zFVcihcvbizfXGInAbJLA5iFQTSCJIMYhgBI5fmOuVgETCBQzR7VhdifbBiB8g6bcnv4 TS3SfhceSNjwAliQlhu6MfUeKFijRo2MNWn8UjqApMkN63DPieIdUDTJUXfHegouZY6zZINO7dq1 jUJrcqRdJP5mbwomdb3GT36Dd9qFzoEXJGnjd02U1PrJ5KGP7JE1+1V5a4sQ64YGj+YFERMnToyk PoKQ7SptF6pWaNdPKjwFDVDUctgMGyexYlFiBw+xxX5w7XpKgCLhUmyA0XjiGFkmLhPl0g1Dnwyw bdu2glvlfTwKyYUKCH6wNtZp166d7 //A4CZRFkKHxjfoESexIm10OwGgyYJio+gMdY8IG2siwWJA
+    l1xAFZg9ArbbcRhr8T45g/aN4blbt24GTKxTyx690oJCkrjyOOto05yHQRrFMKuu1LkZBRDiMABQ JDN8kpESaxAowtMMNZBbdfuddcgAtQ1JW05bcMRqYgggcAzlr5/LhW+9rU4N6e96J8LCmvA40MNt exnQvn79ulFgFNWtsY/y6aEztJ0H9G7rEBvJCbBaZAjIVAZYHzLHaglD0cnXd9qCduDe0AosxR4Q pJ+L6VMDImB1A14Y9SKk/8+JGwn8BbQ1yh6/uoYiAAAAAElFTkSuQmCC);
+}*/
+#board, .board
+{
+    width: 99%;
+    padding: 11px;
+    background-color: whitesmoke;
+
+    th
+    {
+        font-weight: normal;
+        text-align: center;
+    }
+
+    td
+    {
+        background-color: whitesmoke;
+    }
+
+    tbody tr
+    {
+        &:hover
+        {
+            .hovershadow;
+            cursor: move;
+        }
+    }
+}
+
+#boards
+{
+    td
+    {
+        font-size: 1.5em;
+    }
+
+    tr
+    {
+        &:hover
+        {
+            .hovershadow;
+            cursor: move;
+        }
+    }
+}
+
+#boardtop
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    padding: 19px;
+    text-align: center;
+}
+
+td.sidebar .tasks, td.sidebar .hover
+{
+    padding-top: 10px;
+    min-height: 600px;
+}
+
+.taskmini
+{
+    //width: @task-width/2;
+    //height: 35px;
+    padding: @padding;
+    float: left;
+    //width: 98.99000000000001px;
+    font-weight: normal;
+    font-size: 0.7em;
+}
+
+.taskmini:hover
+{
+    opacity: 0.8;
+}
+
+.logitem
+{
+    .date
+    {
+        display: block;
+        font-size: 0.99em;
+    }
+
+    .text
+    {
+        display: block;
+    }
+    //background-color: @gray;
+    //height: 100px;
+    text-align: left;
+    vertical-align: top;
+    padding: @padding;
+    margin: @margin;
+    border-top: 1px solid gray;
+}
+
+.user
+{
+    background-color: @gray;
+    float: left;
+    width: 100px;
+    height: 40px;
+    text-align: left;
+    vertical-align: top;
+    padding: @padding;
+    margin: @margin;
+}
+
+.trash
+{
+}
+
+.profileimage
+{
+    padding: 3px;
+}
+
+.logo-small
+{
+}
+
+#board > tbody > tr > td
+{
+    border-right: 1px solid #fff;
+    height: 111px;
+}
+
+.font
+{
+    font-family: @basefont;
+    font-size:@basefontsize;
+}
+
+#user_bar
+{
+    float: right;
+    font-size: 0.8em;
+    float: right;
+    font-size: .8em;
+    padding-left: 9px;
+    padding-right: 9px;
+    margin: -10px;
+    margin-right: 3px;
+}
+
+.navbar-inner
+{
+    min-height: 20px;
+}
+
+.split50
+{
+    width: 49%;
+    display: block;
+    float: left;
+    min-height: 42px;
+    border: 1px solid red;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.board-header-left
+{
+    .split50;
+}
+
+.board-header-right
+{
+    .split50;
+}
+
+.form-wrap
+{
+    padding: @padding;
+}
+
+.break-word
+{
+    word-wrap: break-word;
+}
+
+.logged_in_part
+{
+    background-color: white;
+    padding: 6px;
+}
+
+.lognote
+{
+    font-size: 0.7em;
+}
+
+body *
+{
+    .font
+}

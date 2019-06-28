@@ -1,0 +1,90 @@
+body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: lightcyan;
+}
+.page {
+  width: 100%;
+  position: relative;
+  background-color: blue;
+  display: inline-block;
+}
+.page div,
+.page p,
+.page h1,
+.page h2,
+.page h3,
+.page h4,
+.page h5 {
+  padding: 3px;
+}
+.page h1 {
+  font-weight: bold;
+}
+.page table {
+  padding: 6px;
+  margin: 6px;
+  border-top: 0px;
+}
+.page table td,
+.page table th {
+  border: 1px solid;
+  padding: 3px;
+  margin: 3px;
+  text-align: center;
+  border-right: 0px;
+  border-left: 0px;
+}
+.page table th,
+.page table h1,
+.page table h2,
+.page table h3 {
+  font-weight: bold;
+}
+.page a:link {
+  color: red;
+}
+.page a:visited {
+  color: #6ecbf8;
+}
+.page a:hover {
+  color: #cfeefd;
+}
+.page.top {
+  background-color: black;
+  height: 22px;
+}
+.page.left {
+  width: 110px;
+  top: 28px;
+  left: 0px;
+  bottom: 0px;
+  position: absolute;
+  background-color: lightgray;
+}
+.page.right {
+  min-height: 2000px;
+  margin-left: 110px;
+  position: relative;
+  background-color: Gray;
+  float: left;
+  padding: 3px;
+}
+.page.topmenu {
+  height: 44px;
+  color: #011119;
+  background-color: #0da8f3;
+}
+.page .topmenu {
+  color: whitesmoke;
+}
+.page .sidebar a :link {
+  color: red;
+}
+.page .sidebar a :visited {
+  color: #6ecbf8;
+}
+.page .sidebar a :hover {
+  color: #cfeefd;
+}

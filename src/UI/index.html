@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head runat="server">
+    <title>Workboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/Content/bootstrap.min.css"/>
+</head>
+<body>
+<span id="user_bar"></span>
+<div id="app">
+
+    <h1>Hello</h1>
+
+    <table width="100%">
+        <tr>
+            <td align="center">
+                <img class="loader" align="middle" src="/global_img/ajax-loader.gif"/>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+<script type="text/javascript">
+    function addCss(href) {
+        var css = document.createElement('link');
+        css.setAttribute("rel", "stylesheet");
+        css.setAttribute("type", "text/css");
+        css.setAttribute("href", href);
+        var head = document.getElementsByTagName("head")[0];
+        head.appendChild(css);
+    }
+
+    var cssFiles = []; //cssFiles.push("/global_css/bootstrap-3.0.3/css/bootstrap.css");
+    cssFiles.push("/scrumbo/css/WB.css");
+    addCss("/global_svr/assets.ashx?type=css&load=" + cssFiles.join(','));
+</script>
+
+<!--<script src="/global_js/jquery.min.js" type="text/javascript"></script>
+<script src="/global_js/routie.min.js" type="text/javascript"></script>
+<script src="/global_js/amplify.min.js" type="text/javascript"></script>
+<script src="/global_js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
+<script src="/global_js/json2.min.js" type="text/javascript"></script>
+<script src="/global_js/jquery-ui-touchpunch.min.js" type="text/javascript"></script>
+<script src="/global_js/linq.min.js" type="text/javascript"></script>
+<script src="/global_js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/global_css/bootstrap-3.0.3/js/bootstrap.js"></script>
+<script src="/global_js/moustache.min.js" type="text/javascript"></script>
+<script src="/global_js/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/global_js/moment.js" type="text/javascript"></script>-->
+<script type="text/javascript">
+
+    var body = document.getElementsByTagName("body")[0];
+
+    function addJs(href) {
+        var js = document.createElement('script');
+        js.setAttribute("type", "text/javascript");
+        js.setAttribute("src", href);
+        body.appendChild(js);
+    }
+
+    var libs = [];
+    libs.push("/thirdparty/jquery-1.9.1.js");
+    libs.push("/thirdparty/routie.min.js");
+    libs.push("/thirdparty/amplify.min.js");
+    libs.push("/thirdparty/jquery-ui-1.9.2.custom.min.js");
+    libs.push("/thirdparty/json2.min.js");
+    libs.push("/thirdparty/jquery-ui-touchpunch.min.js");
+    libs.push("/thirdparty/linq.min.js");
+    libs.push("/thirdparty/bootstrap-3.0.3/js/bootstrap.js");
+    libs.push("/thirdparty/moustache.min.js");
+    libs.push("/thirdparty/jquery.masonry.min.js");
+    libs.push("/thirdparty/moment.js");
+    //for (var i = 0; i < libs.length; i++) {
+    //    addJs(libs[i])
+    //}
+
+    //addJs("/global_svr/assets.ashx?type=js&load=" + libs.join(','))
+
+    var scripts = [];
+    scripts.push("/global_js/App.GlobalCommon.js");
+    scripts.push("/global_js/App.ServiceClient.js");
+    scripts.push("/global_js/App.ViewEngine.js");
+    scripts.push("/account/Account.js");
+    scripts.push("/scrumbo/js/ScrumboServerClient.js");
+    scripts.push("/scrumbo/js/WB.ErrorClasses.js");
+    scripts.push("/scrumbo/js/WB.Storage.js");
+    scripts.push("/scrumbo/js/WB.TaskClasses.js");
+    scripts.push("/scrumbo/js/WB.BoardClasses.js");
+    scripts.push("/scrumbo/js/WB.StoryClasses.js");
+    scripts.push("/scrumbo/js/WB.MiscController.js");
+    scripts.push("/scrumbo/js/WB.UserClasses.js");
+    scripts.push("/scrumbo/js/WB.LogClasses.js");
+    scripts.push("/scrumbo/js/WB.AppStart.js");
+
+    addJs("/global_svr/assets.ashx?type=js&load=" + libs.join(',') + ',' + scripts.join(','));
+</script>
+
+</html>

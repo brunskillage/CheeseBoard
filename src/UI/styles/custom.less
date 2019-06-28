@@ -1,0 +1,159 @@
+
+// constants
+
+@font : 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+@unit : 11px;
+@fullHeight : 100%;
+@fullwidth : 100%;
+@goldenRatio : 1.61803;
+@padding : 3px;
+@margin : 3px;
+
+// gradiations
+
+@gradiationPercent : 25%;
+@baseColour1 : #076593;
+@color1 : #076593;;
+@color1-10 : lighten(@color1, 10%);
+@color1-20 : lighten(@color1, 20%);
+@color1-30 : lighten(@color1, 30%);
+@color1-40 : lighten(@color1, 40%);
+@color1-50 : lighten(@color1, 50%);
+@color1-60 : lighten(@color1, 60%);
+@color1-70 : lighten(@color1, 70%);
+@color1-80 : lighten(@color1, 80%);
+@color1-90 : lighten(@color1, 90%);
+@color1-125 : darken(@color1, 25%);
+
+// colours
+
+@pageSideMenuHeight : 8 * @unit;
+@pageSideMenuWidth : 8 * @unit;
+
+@pageHeaderHeight : 3 * @unit;
+@pageHeaderWidth : 3 * @unit;
+
+@pageFooterHeight : 2 * @unit;
+@pageFooterWidth : 2 * @unit;
+
+
+ body {
+     margin: 0px;
+     height: 100%;
+     width: 100%;
+     background-color: lightcyan;
+
+ }
+
+.page {
+
+    @dividerFactor : 10;
+    width:100%;
+    position:relative;
+    background-color:blue;
+    display:inline-block;
+
+    div, p, h1,h2,h3,h4,h5 {
+        padding: @padding;
+    }
+
+    h1{
+        font-weight: bold;
+    }
+
+    table {
+
+        padding: @padding * 2;
+        margin: @margin * 2;
+        border-top: 0px;
+
+        td, th {
+            border: 1px solid;
+            padding: @padding;
+            margin: @margin;
+            text-align: center;
+            border-right: 0px;
+            border-left: 0px;
+        }
+
+        th, h1,h2,h3 {
+            font-weight: bold;
+        }
+    }
+
+
+
+    a
+    {
+        &:link {
+            color: red;
+        }
+        &:visited{
+             color: @color1-40;
+        }
+        &:hover{
+            color: @color1-60;
+        }
+    }
+
+
+
+    // & = this
+    &.top {
+
+        background-color: black;
+        height: @unit * 2;
+    }
+    
+    &.left {
+        width:@unit * 10;
+        top:@unit * 2 + @padding * 2;
+        left:0px;
+        bottom:0px;
+        position:absolute;
+        background-color:lightgray;
+     }
+
+    &.right {
+        min-height:2000px;
+        margin-left: @unit * 10;
+        position:relative;
+        background-color:Gray;
+        float:left;
+        padding: @padding;
+    }
+
+    &.topmenu {
+        height: @unit * 4;
+        color: @color1-125;
+        background-color: @color1-20;
+    }
+
+
+    .topmenu {
+        color: whitesmoke;
+    }
+
+    .sidebar{
+       a
+       {
+           :link {
+               color: red;
+           }
+           :visited{
+                color: @color1-40;
+           }
+           :hover{
+               color: @color1-60;
+           }
+       }
+    }
+
+    &.main-content{
+        
+    }
+
+    &.footer {
+
+    }
+}
