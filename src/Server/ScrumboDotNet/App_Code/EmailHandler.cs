@@ -7,6 +7,8 @@ namespace Tekphoria.Common
 {
     public class EmailHandler : JsonServer, IHttpHandler
     {
+        public bool IsReusable { get; private set; }
+
         public new void ProcessRequest(HttpContext context)
         {
             try
@@ -18,8 +20,6 @@ namespace Tekphoria.Common
                 HandleError(ex);
             }
         }
-
-        public bool IsReusable { get; private set; }
 
         public dynamic SendMailTest(EmailArgs args)
         {

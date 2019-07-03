@@ -6,7 +6,6 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using Dapper;
-using FluentValidation;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -311,7 +310,7 @@ namespace Tekphoria.Common
                 {
                     data.email
                 }).ToList();
-                return new 
+                return new
                 {
                     validationResult,
                     user_list

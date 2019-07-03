@@ -74,7 +74,7 @@ namespace Tekphoria.Web.Server.Scrumbo
         {
             return GetScrumboConnection().Query("select * from users where id=@id;", new {data.id}).Single();
         }
-        
+
         //NA
         public object UserAddSharedBoard(dynamic data)
         {
@@ -106,6 +106,7 @@ namespace Tekphoria.Web.Server.Scrumbo
                 var valueof = (jTokens[i]).ToString();
                 GetScrumboConnection().Execute("update stories set sort_order=@i where id=@valueof", new {i, valueof});
             }
+
             return true;
         }
 
@@ -129,7 +130,7 @@ namespace Tekphoria.Web.Server.Scrumbo
                 GetScrumboConnection().Execute(
                     "update boards set nameof=@nameof,extra_status_1=@extra_status_1,extra_status_2=@extra_status_2,more_info=@more_info,custom_css=@custom_css where id=@id;",
                     new {data.nameof, extra_status_1, extra_status_2, data.more_info, data.custom_css, id}
-                    );
+                );
         }
 
         public object BoardGetConfiguration(dynamic data)
@@ -184,7 +185,7 @@ namespace Tekphoria.Web.Server.Scrumbo
             return GetScrumboConnection().Execute(
                 "insert into tasks (textof,story_id,board_id,sort_order,status,css_class) values (@textof, @story_id, @board_id, 100,'TODO',@css_class); SELECT last_insert_id() as Last_ID;"
                 , new {data.textof, data.story_id, board_id, data.css_class}
-                );
+            );
         }
 
         public object TaskDelete(dynamic data)
@@ -211,11 +212,12 @@ namespace Tekphoria.Web.Server.Scrumbo
                 var valueof = (arry[i]).ToString();
                 GetScrumboConnection().Execute("update tasks set sort_order=@i where id=@valueof", new {i, valueof});
             }
+
             var status = ((string) data.status).ToUpperInvariant();
             GetScrumboConnection().Execute(
                 "update tasks set story_id=@story_id, status=@status,story_id=@story_id, user_id=@user_id, date_modified=@date_modified where id=@id",
                 new {data.story_id, data.sort_order, data.id, status, data.user_id, date_modified = DateTime.UtcNow}
-                );
+            );
             if (status == "DONE" || status == "ARCHIVE")
                 GetScrumboConnection().Execute(
                     "update tasks set date_done=@date_done where id=@id",
@@ -237,7 +239,7 @@ namespace Tekphoria.Web.Server.Scrumbo
             GetScrumboConnection().Execute(
                 sql,
                 new {data.board_id, data.story_id, task_id = data.id, data.user_id, data.action, data.textof}
-                );
+            );
             return true;
         }
 
@@ -246,7 +248,7 @@ namespace Tekphoria.Web.Server.Scrumbo
             var log_items = GetScrumboConnection().Query(
                 "select textof,date_created,action from log_items where task_id=@task_id order by date_created desc;",
                 new {data.task_id}
-                );
+            );
 
             var actions = GetActions();
 
@@ -259,7 +261,7 @@ namespace Tekphoria.Web.Server.Scrumbo
             var result = GetScrumboConnection().Query(
                 "insert into stories (textof, board_id, sort_order, status) values (@textof, @board_id, @sort_order, @status); SELECT last_insert_id() as id;",
                 new {data.textof, board_id = id, sort_order = -1, status = "TODO"}
-                );
+            );
             return (int) result.First().id;
         }
 
@@ -268,7 +270,7 @@ namespace Tekphoria.Web.Server.Scrumbo
             var result = GetScrumboConnection().Query(
                 "insert into stories (textof, board_id, sort_order, status) values (@textof, @board_id, @sort_order, @status); SELECT last_insert_id() as id;",
                 new {data.textof, data.board_id, sort_order = -1, status = "TODO"}
-                );
+            );
             return (int) result.First().id;
         }
 
@@ -276,7 +278,7 @@ namespace Tekphoria.Web.Server.Scrumbo
         {
             GetScrumboConnection().Execute("delete from stories where id=@id;delete from tasks where story_id=@id;",
                 new {data.id}
-                );
+            );
             return true;
         }
 
@@ -330,7 +332,7 @@ namespace Tekphoria.Web.Server.Scrumbo
 
         public dynamic GetActions()
         {
-            return Enum.GetNames(typeof (ActionEnum));
+            return Enum.GetNames(typeof(ActionEnum));
         }
 
         public object BoardsList(dynamic data)
@@ -354,8 +356,8 @@ namespace Tekphoria.Web.Server.Scrumbo
                 return validationResult;
 
             dynamic result = GetScrumboConnection().Query<dynamic>(
-                "insert into boards (nameof, hash, more_info) values (@nameof, @hash, ''); SELECT last_insert_id() as newid;",
-                new {data.nameof, data.hash})
+                    "insert into boards (nameof, hash, more_info) values (@nameof, @hash, ''); SELECT last_insert_id() as newid;",
+                    new {data.nameof, data.hash})
                 .Single();
             UserAddSharedBoard(data);
             StoryAddToBoardByid(new {textof = "General Work", board_id = result.newid});
@@ -365,7 +367,8 @@ namespace Tekphoria.Web.Server.Scrumbo
         public object UserRecentTasks(dynamic data)
         {
             dynamic tasks =
-                GetScrumboConnection().Query("select * from tasks where user_id=@user_id", new {data.user_id}).ToArray();
+                GetScrumboConnection().Query("select * from tasks where user_id=@user_id", new {data.user_id})
+                    .ToArray();
             return new {tasks};
         }
 
@@ -380,6 +383,7 @@ namespace Tekphoria.Web.Server.Scrumbo
                     .Execute("update user_boards set sort_order=@i where user_id=@user_id AND board_hash=@board_hash",
                         new {i, user_id, board_hash});
             }
+
             return true;
         }
     }

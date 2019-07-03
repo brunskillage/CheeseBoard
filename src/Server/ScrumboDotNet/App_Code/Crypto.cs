@@ -32,7 +32,7 @@ namespace Tekphoria.Common
 
                 // Create a RijndaelManaged object
                 aesAlg = new RijndaelManaged();
-                aesAlg.Key = key.GetBytes(aesAlg.KeySize/8);
+                aesAlg.Key = key.GetBytes(aesAlg.KeySize / 8);
 
                 // Create a decryptor to perform the stream transform.
                 var encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
@@ -41,7 +41,7 @@ namespace Tekphoria.Common
                 using (var msEncrypt = new MemoryStream())
                 {
                     // prepend the IV
-                    msEncrypt.Write(BitConverter.GetBytes(aesAlg.IV.Length), 0, sizeof (int));
+                    msEncrypt.Write(BitConverter.GetBytes(aesAlg.IV.Length), 0, sizeof(int));
                     msEncrypt.Write(aesAlg.IV, 0, aesAlg.IV.Length);
                     using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
                     {
@@ -51,6 +51,7 @@ namespace Tekphoria.Common
                             swEncrypt.Write(plainText);
                         }
                     }
+
                     outStr = Convert.ToBase64String(msEncrypt.ToArray());
                 }
             }
@@ -98,7 +99,7 @@ namespace Tekphoria.Common
                     // Create a RijndaelManaged object
                     // with the specified key and IV.
                     aesAlg = new RijndaelManaged();
-                    aesAlg.Key = key.GetBytes(aesAlg.KeySize/8);
+                    aesAlg.Key = key.GetBytes(aesAlg.KeySize / 8);
                     // Get the initialization vector from the encrypted stream
                     aesAlg.IV = ReadByteArray(msDecrypt);
                     // Create a decrytor to perform the stream transform.
@@ -125,7 +126,7 @@ namespace Tekphoria.Common
 
         private static byte[] ReadByteArray(Stream s)
         {
-            var rawLength = new byte[sizeof (int)];
+            var rawLength = new byte[sizeof(int)];
             if (s.Read(rawLength, 0, rawLength.Length) != rawLength.Length)
             {
                 throw new SystemException("Stream did not contain properly formatted byte array");

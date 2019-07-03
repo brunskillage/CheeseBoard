@@ -54,7 +54,7 @@ namespace Tekphoria.Common
             payload.Data.user_id = user_id;
 
             var methodInfo = GetType().GetMethod(payload.MethodName);
-            var attributes = methodInfo.GetCustomAttributes(typeof (ValidationAttribute), false);
+            var attributes = methodInfo.GetCustomAttributes(typeof(ValidationAttribute), false);
             if (attributes.Length > 0)
             {
                 var validationAttribute = attributes[0] as ValidationAttribute;
@@ -79,6 +79,7 @@ namespace Tekphoria.Common
                 c = (char) (c ^ key);
                 outSb.Append(c);
             }
+
             return outSb.ToString();
         }
 

@@ -16,16 +16,7 @@ namespace Tekphoria.Common
                 return
                     "Server=192.168.1.130;Database=scrumbo;Uid=dev;Password=devpass";
 
-            return "Server=mysql02.myhostcp.com;Database=scrumbo;Uid=dev;Password=x3n0nx3n0n";
-        });
-
-        public static readonly Lazy<string> GetCloggerConnectionString = new Lazy<string>(() =>
-        {
-            if (IsDevMachine)
-                return
-                    "Server=192.168.1.130;Database=scrumbo;Uid=dev;Password=devpass";
-
-            return "Server=mysql02.myhostcp.com;Database=scrumbo;Uid=dev;Password=x3n0nx3n0n";
+            return "Server=XXXXX;Database=scrumbo;Uid=dev;Password=XXXXX";
         });
 
         public static readonly Lazy<string> GetCommonDbConnectionString = new Lazy<string>(() =>
@@ -34,16 +25,7 @@ namespace Tekphoria.Common
                 return
                     "Server=192.168.1.130;Database=common;Uid=dev;Password=devpass";
 
-            return "Server=mysql02.myhostcp.com;Database=common;Uid=dev;Password=x3n0nx3n0n";
-        });
-
-        public static readonly Lazy<string> GetJackalDbConnectionString = new Lazy<string>(() =>
-        {
-            if (IsDevMachine)
-                return
-                    "Server=192.168.1.130;Database=jackal;Uid=dev;Password=devpass";
-
-            return "Server=mysql02.myhostcp.com;Database=jackal;Uid=jackalUser;Pwd=$xmF9Mdp;";
+            return "Server=XXXX.myhostcp.com;Database=common;Uid=dev;Password=XXXX";
         });
 
         public static readonly string encryptKey = "d866f9e8";
@@ -53,7 +35,8 @@ namespace Tekphoria.Common
         {
             get
             {
-                return Environment.MachineName == "LAPTOP-I1OURGB" || Environment.MachineName == "DEVSVR-019156" || Environment.MachineName == "TUI" ||
+                return Environment.MachineName == "LAPTOP-I1OURGB" || Environment.MachineName == "DEVSVR-019156" ||
+                       Environment.MachineName == "TUI" ||
                        Environment.MachineName == "MOKO" || Environment.MachineName == "WETA";
             }
         }
@@ -70,7 +53,8 @@ namespace Tekphoria.Common
                 return new NetworkCredential
                 {
                     UserName = ConfigurationManager.AppSettings.Get("mail_username"),
-                    Password = Crypto.DecryptStringAES(ConfigurationManager.AppSettings.Get("mail_password"), encryptKey)
+                    Password = Crypto.DecryptStringAES(ConfigurationManager.AppSettings.Get("mail_password"),
+                        encryptKey)
                 };
             }
         }

@@ -92,7 +92,7 @@ namespace Tekphoria.Web.Server.Scrumbo
             {
                 var con = HttpContext.Current.Items["con"] as IDbConnection;
                 dynamic res = con.Query<dynamic>("select count(id) as user_count from users where email=@email;",
-                    new {email})
+                        new {email})
                     .Single();
                 return res.user_count > 0;
             }
@@ -150,7 +150,7 @@ namespace Tekphoria.Web.Server.Scrumbo
             {
                 var con = HttpContext.Current.Items["con"] as IDbConnection;
                 dynamic res = con.Query<dynamic>("select count(id) as board_count from boards where hash=@hash;",
-                    new {hash})
+                        new {hash})
                     .Single();
                 return res.board_count == 1;
             }
@@ -160,8 +160,8 @@ namespace Tekphoria.Web.Server.Scrumbo
                 var con = HttpContext.Current.Items["con"] as IDbConnection;
                 dynamic res =
                     con.Query<dynamic>(
-                        "select count(id) as link_count from user_boards where board_hash=@hash and user_id=@user_id;",
-                        new {hash, user_id = HttpContext.Current.Items["UserId"]})
+                            "select count(id) as link_count from user_boards where board_hash=@hash and user_id=@user_id;",
+                            new {hash, user_id = HttpContext.Current.Items["UserId"]})
                         .Single();
                 return res.link_count == 0;
             }
@@ -195,7 +195,7 @@ namespace Tekphoria.Web.Server.Scrumbo
             {
                 var con = HttpContext.Current.Items["con"] as IDbConnection;
                 dynamic res = con.Query<dynamic>("select count(id) as user_count from users where email=@email;",
-                    new {email})
+                        new {email})
                     .Single();
                 return res.user_count == 0;
             }
