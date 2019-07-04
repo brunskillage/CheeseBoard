@@ -1,0 +1,24 @@
+
+<h1>TransitStops</h1>
+<a href='#' id="selectedButton" onclick="Transport.stopsPage.onSelectedClick();" class='btn btn-default'>Selected</a>
+<table class='table table-striped'>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Bearing</th>
+            <th>Select</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{name}}</td>
+            <td><a href='/transport/report?stopId={{primaryCode}}&lookAheadMinutes=60'>Realtime Info</a></td>
+            <td>{{cardinalBearing}}</td>
+            <td><input type="checkbox" class='stopSelection' data-primaryCode='{{primaryCode}}'></td>
+        </tr>
+        {{/each}}
+
+    </tbody>
+</table>

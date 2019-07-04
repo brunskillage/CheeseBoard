@@ -1,0 +1,56 @@
+
+
+
+
+<h1>Report</h1>
+<p><a href='/transport/stops'>Stops</a></p>
+stopId:{{data.stopID}}
+<table class='table table-striped'>
+    <thead>
+        <tr>
+            <th>Stop</th>
+            <th>Route</th>
+            <th>Heading</th>
+            <th>Expected</th>
+            <th>Scheduled</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {{#each results}}
+          {{#each data.rtiReports}}
+            {{#each upcomingCalls}}
+        <tr>
+            <td>{{stopName}}</td>
+            <td>{{routeInfo.lineName}}</td>
+            <td>{{tripInfo.headsign}}</td>
+            <td>{{expectedArrivalTimeNice}} {{#if difference}} ({{difference}} minutes late) {{/if}}</td>
+            <td>{{scheduledCall.scheduledArrivalTimeNice}}</td>
+        </tr>
+            {{/each}}
+          {{/each}}
+        {{/each}}
+    </tbody>
+</table>
+
+{{#if data.primaryExpectedMinutes}}
+<p>Audio</p>
+
+<audio id="player1" src="/audio/{{data.primaryExpectedMinutes}}.wav"></audio>
+<audio id="player2" src="/audio/{{data.minuteText}}.wav"></audio>
+
+<script type='text/javascript'>
+    document.getElementById('player1').play()
+    setTimeout(function() {
+        document.getElementById('player2').play()
+    },1000) 
+</script>
+
+{{/if}}
+            {{!-- expectedArrivalTime: {{expectedArrivalTime}}<br>
+            expectedArrivalTimeNice: {{expectedArrivalTimeNice}}<br>
+            stopName: {{stopName}}<br>
+            headsign: {{tripInfo.headsign}}<br>
+            lineName: {{routeInfo.lineName}}<br>
+            scheduledArrivalTime: {{scheduledCall.scheduledArrivalTime}}<br>                     
+            scheduledArrivalTimeNice: {{scheduledCall.scheduledArrivalTimeNice}}<br> --}}

@@ -1,0 +1,3 @@
+class devConfig implements IConfig {
+    
+}

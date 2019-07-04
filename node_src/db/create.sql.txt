@@ -1,0 +1,121 @@
+CREATE DATABASE `scrumbo` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE  IF NOT EXISTS `scrumbo` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `scrumbo`;
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: mysql02.myhostcp.com    Database: scrumbo
+-- ------------------------------------------------------
+-- Server version	5.5.5-10.0.33-MariaDB-1~trusty
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `backlog`
+--
+
+DROP TABLE IF EXISTS `backlog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `backlog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The backlog id',
+  `nameof` varchar(50) NOT NULL COMMENT 'the backlog name',
+  `textof` varchar(200) NOT NULL COMMENT 'the backlog description',
+  `date_created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `backlog`
+--
+
+LOCK TABLES `backlog` WRITE;
+/*!40000 ALTER TABLE `backlog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `backlog` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `binary_assets`
+--
+
+DROP TABLE IF EXISTS `binary_assets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `binary_assets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'the id',
+  `original_name` varchar(256) NOT NULL COMMENT 'hte original name',
+  `stored_name` varchar(256) DEFAULT NULL COMMENT 'the file system stored name',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `binary_assets`
+--
+
+LOCK TABLES `binary_assets` WRITE;
+/*!40000 ALTER TABLE `binary_assets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `binary_assets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `boards`
+--
+
+DROP TABLE IF EXISTS `boards`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `boards` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nameof` varchar(100) NOT NULL COMMENT 'Name of the board',
+  `hash` varchar(12) NOT NULL COMMENT 'the unique hash of this board',
+  `group_hash` varchar(60) DEFAULT NULL COMMENT 'the grouping hash',
+  `extra_status_1` varchar(15) DEFAULT NULL COMMENT 'First extra column after todo',
+  `extra_status_2` varchar(15) DEFAULT NULL COMMENT 'First extra column after status 1',
+  `more_info` varchar(300) DEFAULT NULL COMMENT 'Additional information for the board',
+  `row_header_name` varchar(30) DEFAULT NULL COMMENT 'The alternative name for a story',
+  `custom_css` varchar(2000) DEFAULT NULL COMMENT 'The custom css',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `hash` (`hash`)
+) ENGINE=InnoDB AUTO_INCREMENT=8094 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `boards`
+--
+
+LOCK TABLES `boards` WRITE;
+/*!40000 ALTER TABLE `boards` DISABLE KEYS */;
+INSERT INTO `boards` VALUES (61,'Clarks.co.uk','RT1aE4JAIYAI',NULL,'SIGNOFF','','.task{\ncolor:blue;\n}','','.board-header {\ncontent: \"\";\nwidth: 196px;\ndisplay: block;\nheight: 58px;\nbackground-image: url(http://cms.clarksmcr.com/upload/UK/Header/SS13/Week_51/Images/clarks-logo.png);\nbackground-repeat: no-repeat;\ncolor: transparent;}'),(62,'Tekphoria','JZ7LZT517CQb',NULL,'TEST','SIGNOFF','','','.board-header {\ncontent: \"\";\nwidth: 196px;\ndisplay: block;\nheight: 108px;\nbackground-image: url(http://www.tekphoria.co.uk/global_img/tekphoria.logo.01.jpg);\nbackground-repeat: no-repeat;\ncolor: transparent;}'),(63,'HPB','YZEbMZRREXMW','AAAAAAAAAAAA','','','<a href=\'/talk\'>Talk</a>','',NULL),(64,'Family','M662CZ8GX9GS',NULL,NULL,NULL,NULL,'',NULL),(65,'Scrumbo','2KPRKaDQPWIL','BBBBBBB',NULL,NULL,NULL,'',NULL),(66,'Paperworx','DDMNIH5N6YLH','AAAAAAAAAAAA','TEST','','Please enter you initals into the Note and a short date eg May20','',NULL),(80,'Fruit Supply','ESIBR6RENTLB','AAAAAAAAAAAA',NULL,NULL,'','',NULL),(82,'The test board','LT5X1MPJYA1W',NULL,NULL,NULL,'','',NULL),(84,'Sylvan Way','FUU985SIJZ',NULL,NULL,NULL,'',NULL,NULL),(85,'sstan1','E4WGFHU2SF15',NULL,NULL,NULL,'',NULL,NULL),(86,'sstan1','VK3U8SYP41Y',NULL,NULL,NULL,'',NULL,NULL),(87,'Woodies Tech','IWIRM231IFQX',NULL,NULL,NULL,'',NULL,NULL),(88,'Clarks 61R2','ZKTZMY818CI',NULL,NULL,NULL,'',NULL,NULL),(90,'Release 62','LHBE1HMQMMAN',NULL,'SIGNOFF','','Release 62 Work for Clarks.co.uk',NULL,NULL),(720,'131 doncaster','N528DR5218C5',NULL,NULL,NULL,'',NULL,NULL),(1735,'Just Eat','E3ST2MSDQTWN',NULL,'','','',NULL,'.board-header {\ncontent: \"\";\nwidth: 196px;\ndisplay: block;\nheight: 58px;\nbackground-image: url(http://dy3erx8o0a6nh.cloudfront.net/images/just-eat-logo.png);\nbackground-repeat: no-repeat;\ncolor: transparent;}'),(2219,'Clarks RangeTracker','PSU9V7EYR85',NULL,'','','',NULL,''),(2334,'41 Brookleaze BS9 2EX','XF6BSDUXNU',NULL,'','','',NULL,''),(2910,'IRESS','IHS6WXGCRHY',NULL,NULL,NULL,'',NULL,NULL),(5606,'iDemocratic','4BBGXAPMB3R',NULL,NULL,NULL,'',NULL,NULL),(5847,'Openwork','AT6EZR1W1F8H',NULL,NULL,NULL,'',NULL,NULL),(6671,'TimerCard','GJPBRBL5PQ1',NULL,NULL,NULL,'',NULL,NULL),(6749,'JAckalTime','CWUNA3PNNCMN',NULL,NULL,NULL,'',NULL,NULL),(7969,'RowanDarlington','941TKINHLPR',NULL,NULL,NULL,'',NULL,NULL),(8093,'Paperworx (Demo Board)','6SZUZNVQ786S',NULL,NULL,NULL,'',NULL,NULL);
+/*!40000 ALTER TABLE `boards` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `link_history`
+--
+
+DROP TABLE IF EXISTS `link_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `link_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date_created` datetime NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `link_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6131 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `link_history`
+--

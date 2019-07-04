@@ -1,0 +1,98 @@
+<table>
+<thead>
+    <tr>
+        <td>Current</td>
+        <td>Next</td>
+        <td>Tick</td>
+        <td>Back</td>
+        <td>Set</td>
+    </tr>
+</thead>
+<tbody>
+    {{#each counters}}
+    <tr data-prefix='{{prefix}}'>
+        <td>{{value}}</td>
+        <td>{{next}}</td>
+        <td><a id=counterBackwardLink href='#'><<<</a></td>
+        <td><a id=counterForwardLink href='#'>>>></a></td>
+        <td><input type=text id=countersetText maxlength="5"/><input type=checkbox id=confirmSetCheckbox><input value=set type=button id=setCounterButton /></td>
+    </tr>
+    {{/each}}        
+</tbody>
+</table>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+
+$(function(){
+    console.log("Ready...")
+
+    function getPrefix(event){
+        return $(event.currentTarget).closest("tr")[0].dataset.prefix
+    }
+
+    function getSetValue() {
+        return $("#countersetText").val()
+    }
+
+    function getConfirmed() {
+        return $("#confirmSetCheckbox").is(":checked")
+    }
+
+    function reload(){
+        window.location.reload(true);
+    }
+
+    function counterSet(event) {
+        event.preventDefault()
+        console.log("counterSet...")
+
+        var prefix = getPrefix(event)
+        var val = getSetValue(event)
+        var confirmed = getConfirmed(event)
+
+        if(!confirmed || !val){
+            alert("Must confirm set and have a value")
+            return;
+        }
+
+        $.get('/api/counters/' + prefix + '/set/' + val).then(function(){
+               reload()
+        })
+    }
+
+
+
+    function counterForward(event) {
+        event.preventDefault()
+        console.log("counterForward...")
+
+        var prefix = getPrefix(event)
+
+        $.get('/api/counters/' + prefix + '/tick').then(function(){
+               reload()
+        })
+
+    }
+
+    function counterBackward(event) {
+        event.preventDefault()
+        console.log("counterForward...")
+
+        var prefix = getPrefix(event)
+
+        $.get('/api/counters/' + prefix + '/back').then(function(){
+                reload()
+        })
+    }
+
+    $("#counterBackwardLink").off("click").on("click",  function(e) { counterBackward(e) } )
+    $("#counterForwardLink").off("click").on("click", function(e) { counterForward(e) } )
+    $("#setCounterButton").off("click").on("click", function(e) { counterSet(e) } )
+    
+})
+
+</script>

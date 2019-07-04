@@ -1,0 +1,34 @@
+Using this app.
+
+run nodemon app.js in folder to get webserver
+reu tsc -w to compile typescript automatically
+when adding dependencies use --save top add to project json
+
+i used visual studio code
+with tslint and easy less for transpiling the css
+
+This version has no db but everything else works!
+
+run npm install
+
+install nodemon, tslint, sequelize, sqlite3 etc
+make sure tsc is working
+then tsc -w to watch the files
+
+npm install globally tslint or in vs code or similar
+code views in views
+code controllers per endpoint if prefered
+
+cd /Users/allanbrunskill/Code/Bitbucket/homenet/scrumbo2 && rsync -rv --exclude=node_modules --exclude=db/counters.txt --exclude=db/work.sqlite * pi@192.168.1.6:/share/www/express1
+
+<TransitAgency>
+<AgencyFareURL i:nil="true"/>
+<AgencyID>UK_TNDS_NOC_FBRI</AgencyID>
+<AgencyImportSource>TNDS</AgencyImportSource>
+<AgencyLanguage i:nil="true"/>
+<AgencyName>First in Bristol Bath &</AgencyName>
+<AgencyPhone i:nil="true"/>
+<AgencyRegion>SW</AgencyRegion>
+<AgencyTimeZone>UTC</AgencyTimeZone>
+<AgencyURL>http://www.traveline.info</AgencyURL>
+</TransitAgency>

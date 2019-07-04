@@ -1,0 +1,4 @@
+
+class liveConfig implements IConfig {
+    
+}
