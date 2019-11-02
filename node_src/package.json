@@ -519,7 +519,7 @@
       "resolved": "https://registry.npmjs.org/send/-/send-0.16.2.tgz",
       "version": "0.16.2"
     },
-    "sequelize": "^4.37.3",
+    "sequelize": "^5.15.1",
     "serve-static": {
       "integrity": "sha512-p/tdJrO4U387R9oMjb1oj7qSMaMfmOyd4j9hOFoxZe2baQszgHcSWjuya/CiT5kgZZKRudHNOA0pYXOl8rQ5nw==",
       "requires": {
