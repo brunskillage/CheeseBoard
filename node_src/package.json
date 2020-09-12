@@ -375,7 +375,7 @@
       "resolved": "https://registry.npmjs.org/negotiator/-/negotiator-0.6.1.tgz",
       "version": "0.6.1"
     },
-    "node-fetch": "^2.1.2",
+    "node-fetch": "^2.6.1",
     "node-static": {
       "integrity": "sha512-bd7zO5hvCWzdglgwz9t82T4mYTEUzEG5pXnSqEzitvmEacusbhl8/VwuCbMaYR9g2PNK5191yBtAEQLJEmQh1A==",
       "requires": {
